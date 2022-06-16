@@ -9,7 +9,7 @@ variable "vpc_id" {
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
   type        = string
-  default     = "MIAX-POC1"
+  default     = "Bala-Cluster"
 }
 variable "subnets" {
   description = "A list of subnets."
