@@ -46,7 +46,7 @@ data "aws_eks_cluster_auth" "cluster" {
 resource "aws_eks_node_group" "vericlear" {
   cluster_name    = var.cluster_name
   node_group_name = "vericlear"
-  node_role_arn   = "arn:aws:iam::443340960488:role/MIAX-POC2022052321065380730000000e"
+  node_role_arn   = module.eks.worker_iam_role_arn
   subnet_ids      = var.subnets
 
 
