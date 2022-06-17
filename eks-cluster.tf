@@ -7,7 +7,7 @@ module "eks" {
   version         = "17.24.0"
   cluster_name    = var.cluster_name
   cluster_version = "1.21"
-  subnets         = var.subnets
+  subnets         = "${data.terraform_remote_state.remote.outputs.module_vpc3_private_subnets}"
 
   vpc_id = var.vpc_id
   cluster_endpoint_private_access = false
@@ -47,7 +47,7 @@ resource "aws_eks_node_group" "vericlear" {
   cluster_name    = var.cluster_name
   node_group_name = "vericlear"
   node_role_arn   = module.eks.worker_iam_role_arn
-  subnet_ids      = var.subnets
+  subnet_ids      = "${data.terraform_remote_state.remote.outputs.module_vpc3_private_subnets}"
 
 
   scaling_config {
